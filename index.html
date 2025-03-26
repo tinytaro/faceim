@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>face input</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="permission-container" class="permission-container">
+        <div class="permission-content">
+            <h2>需要摄像头权限</h2>
+            <p>本应用需要访问您的摄像头以实现人脸控制功能。</p>
+            <p>请在浏览器弹出的权限请求中选择"允许"。</p>
+            <button id="permission-button" class="permission-button">授予权限</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="input-display">
+            <div id="input-text"></div>
+            <div id="current-pinyin"></div>
+        </div>
+        
+        <div class="camera-grid-container">
+            <video id="input-video" autoplay playsinline></video>
+            <canvas id="output-canvas"></canvas>
+            
+            <div class="grid-overlay">
+                <div class="grid-cell" id="cell-0">1<br>一丨</div>
+                <div class="grid-cell" id="cell-1">2<br>ABC</div>
+                <div class="grid-cell" id="cell-2">3<br>DEF</div>
+                <div class="grid-cell" id="cell-3">4<br>GHI</div>
+                <div class="grid-cell" id="cell-4">5<br>JKL</div>
+                <div class="grid-cell" id="cell-5">6<br>MNO</div>
+                <div class="grid-cell" id="cell-6">7<br>PQRS</div>
+                <div class="grid-cell" id="cell-7">8<br>TUV</div>
+                <div class="grid-cell" id="cell-8">9<br>WXYZ</div>
+            </div>
+        </div>
+        
+        <div class="candidates" id="candidates-container"></div>
+        
+        <div class="instructions">
+            <p>使用说明：</p>
+            <ul>
+                <li>将头部移动使鼻尖指向九宫格中的按键</li>
+                <li>张嘴后闭嘴确认选择当前按键</li>
+                <li>连续选择形成拼音，然后选择相应的汉字</li>
+            </ul>
+        </div>
+        
+        <div id="device-info" class="device-info"></div>
+        <div id="error-message" class="error-message"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
