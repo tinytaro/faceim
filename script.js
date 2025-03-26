@@ -63,7 +63,7 @@ function initFaceMesh() {
     try {
         faceMesh = new FaceMesh({
             locateFile: (file) => {
-                return `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`;
+                return `js/mediapipe/face_mesh/${file}`;
             }
         });
 
